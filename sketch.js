@@ -73,10 +73,10 @@ function setup() {
     canH = windowHeight; 
     createCanvas(windowWidth, windowHeight);
   }*/
-  createCanvas(displayWidth, displayHeight-80)
-  // createCanvas(windowWidth+80, windowHeight+80);
-  canW = displayWidth
-  canH =  displayHeight
+  // createCanvas(displayWidth, displayHeight-80)
+  createCanvas(windowWidth, windowHeight);
+  canW = windowWidth
+  canH =  windowHeight
   /* scale ends */
  
   frameRate(80);
@@ -105,7 +105,7 @@ function setup() {
   btn2.mouseClicked(drop2);
 
   mute_btn = createImg('mute.png');
-  mute_btn.position(450,20);
+  mute_btn.position(canW- 150,20);
   mute_btn.size(50,50);
   mute_btn.mouseClicked(mute);
   
@@ -120,7 +120,7 @@ function setup() {
   blink.frameDelay = 20;
   eat.frameDelay = 20;
 
-  bunny = createSprite(420,canH - 150,100,100);
+  bunny = createSprite(300,canH - 150,100,100);
   bunny.scale = 0.2;
 
   bunny.addAnimation('blinking',blink);
