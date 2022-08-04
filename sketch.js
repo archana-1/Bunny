@@ -32,6 +32,7 @@ var eating_sound;
 var air;
 
 var btn1, btn2
+var canW, canH
 function preload()
 {
   bg_img = loadImage('background.png');
@@ -57,17 +58,25 @@ function preload()
 
 function setup() {
   /* added code to scale */
-  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  /*var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  console.log(isMobile)
+  console.log(displayWidth)
+  console.log(windowWidth)
   if(isMobile){
     canW = displayWidth; 
     canH = displayHeight; 
+
     createCanvas(canW+80, canH);
   } 
   else {
     canW = windowWidth; 
     canH = windowHeight; 
     createCanvas(windowWidth, windowHeight);
-  }
+  }*/
+  createCanvas(displayWidth, displayHeight-80)
+  // createCanvas(windowWidth+80, windowHeight+80);
+  canW = displayWidth
+  canH =  displayHeight
   /* scale ends */
  
   frameRate(80);
@@ -111,7 +120,7 @@ function setup() {
   blink.frameDelay = 20;
   eat.frameDelay = 20;
 
-  bunny = createSprite(420,canH - 80,100,100);
+  bunny = createSprite(420,canH - 150,100,100);
   bunny.scale = 0.2;
 
   bunny.addAnimation('blinking',blink);
