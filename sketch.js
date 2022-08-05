@@ -64,7 +64,7 @@ function setup() {
   console.log(windowWidth)
   if(isMobile){
     canW = displayWidth; 
-    canH = displayHeight; 
+    canH = 853; 
 
     createCanvas(canW+80, canH);
   } 
