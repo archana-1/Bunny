@@ -58,7 +58,8 @@ function preload()
 
 function setup() {
   /* added code to scale */
-  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); 
+  // var isMobile = navigator.userAgent
   console.log(isMobile)
   console.log(displayWidth)
   console.log(windowWidth)
@@ -113,7 +114,7 @@ function setup() {
 
   rope1 = new Rope(7, {x: 370,y: 40})
   rope2 = new Rope(4, {x: 400, y: 225})
-  ground = new Ground(200,canH,600,20);
+  ground = new Ground(width/2,height -10,width,20);
 
   blink.frameDelay = 20;
   eat.frameDelay = 20;
@@ -143,9 +144,9 @@ function setup() {
 
 function draw() 
 {
-  background(51);
-//   image(bg_img,0,0,displayWidth+80,displayHeight);
-  image(bg_img, 0,0)
+  background(255);
+  image(bg_img,0,0,width+80,height);
+  // image(bg_img, 0, 0)
 
   push();
   imageMode(CENTER);
