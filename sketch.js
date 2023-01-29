@@ -64,14 +64,12 @@ function setup() {
   console.log(displayWidth)
   console.log(windowWidth)
   if(isMobile){
-    canW = displayWidth; 
-    canH = displayHeight; 
+     
 
-    createCanvas(canW+80, canH);
+    createCanvas(displayWidth+80, displayHeight);
   } 
   else {
-    canW = windowWidth; 
-    canH = windowHeight; 
+    
     createCanvas(windowWidth, windowHeight);
   }
   
@@ -99,27 +97,27 @@ function setup() {
 
   // btn2
   btn2 = createImg('cut_btn.png');
-  btn2.position(360,200);
+  btn2.position(360,225);
   btn2.size(50,50);
   btn2.mouseClicked(drop2);
 
   mute_btn = createImg('mute.png');
-  mute_btn.position(canW- 150,20);
+  mute_btn.position(width- 150,20);
   mute_btn.size(50,50);
   mute_btn.mouseClicked(mute);
   
   // ropes
 
-  rope = new Rope(8,{x:40,y:30});
-
-  rope1 = new Rope(7, {x: 370,y: 40})
-  rope2 = new Rope(4, {x: 400, y: 225})
+  rope = new Rope(10, {x: 40, y: 40})
+  rope1 = new Rope(8, {x: 330, y: 50})
+  rope2 = new Rope(3, {x: 360, y: 230})
+  
   ground = new Ground(width/2,height -10,width,20);
 
   blink.frameDelay = 20;
   eat.frameDelay = 20;
 
-  bunny = createSprite(300,canH - 80,100,100);
+  bunny = createSprite(300,height - 80,100,100);
   bunny.scale = 0.2;
 
   bunny.addAnimation('blinking',blink);
@@ -131,8 +129,8 @@ function setup() {
   Matter.Composite.add(rope.body,fruit);
 
   fruit_con = new Link(rope,fruit);
-  fruit_con2 = new Link(rope1,fruit);
-  fruit_con3 = new Link(rope2,fruit);
+  fruit_con_2 = new Link(rope1,fruit);
+  fruit_con_3 = new Link(rope2,fruit);
 
 
 
@@ -147,7 +145,7 @@ function draw()
   background(255);
   image(bg_img,0,0,width+80,height);
   // image(bg_img, 0, 0)
-
+  console.log(window)
   push();
   imageMode(CENTER);
   if(fruit!=null){
@@ -192,15 +190,15 @@ function drop()
 function drop1(){
   cut_sound.play();
   rope1.break();
-  fruit_con2.detach();
-  fruit_con2 = null; 
+  fruit_con_2.detach();
+  fruit_con_2 = null; 
 }
 
 function drop2(){
   cut_sound.play();
   rope2.break();
-  fruit_con3.detach();
-  fruit_con3 = null; 
+  fruit_con_3.detach();
+  fruit_con_3 = null; 
 }
 
 function collide(body,sprite)
